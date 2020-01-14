@@ -1,0 +1,9 @@
+<div class="content">
+  hello world
+  {{this.$count | async}}
+</div>
+
+<button (click)="increment()">Add Value</button>
+
+<button (click)="fetchTodo()">Fetch Todo</button>
+<router-outlet></router-outlet>
