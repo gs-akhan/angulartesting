@@ -6,28 +6,24 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { provideMockStore, MockStore } from "@ngrx/store/testing";
 import { addMatchers, initTestScheduler, cold } from 'jasmine-marbles';
 import { Store } from '@ngrx/store';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 describe('AppComponent', () => {
 
 
-  let mockStore : MockStore<any> = null; 
+  let mockStore: MockStore<any> = null;
   beforeEach(async(() => {
-    initTestScheduler();
-    addMatchers();
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        HttpClientModule
-      ],
-      providers: [provideMockStore({
-        initialState: {
-          count: 0
-        }
-      })],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [HttpClientTestingModule],
       declarations: [
         AppComponent
       ],
+      providers: [MockStore, provideMockStore({
+        initialState: {
+          count: 0
+        }
+      })]
     }).compileComponents();
-
     mockStore = TestBed.get(Store);
   }));
 
@@ -59,9 +55,9 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     app.increment();
     mockStore.setState({
-      count : 1
+      count: 1
     });
-    expect(app.$count).toBeObservable(cold("a",{a:1}));
-    
+    expect(app.$count).toBeObservable(cold("a", { a: 1 }));
+
   });
 });

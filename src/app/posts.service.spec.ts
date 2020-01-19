@@ -39,7 +39,7 @@ describe('PostsService', () => {
       postService.getPosts().subscribe((data: any) => {
         expect(data.length).toBe(2);
       });
-      const mockReq = httpMock.expectOne("https://jsonplaceholder.typicode.com/todos");
+      const mockReq = httpMock.expectOne("https://jsonplaceholder.typicode.com/todos/1");
       expect(mockReq.request.method).toEqual("GET");
       mockReq.flush(mockTodoData);
       httpMock.verify();

@@ -9,9 +9,13 @@ import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import TodoEffects from './effects/index.effect';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ParentComponent } from './parent/parent.component';
+import { ChlildComponent } from './chlild/chlild.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ParentComponent,
+    ChlildComponent
   ],
   imports: [
     BrowserModule,

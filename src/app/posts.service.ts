@@ -10,7 +10,7 @@ export class PostsService {
 
   getPosts() {
 
-    return this.http.get("https://jsonplaceholder.typicode.com/todos");
+    return this.http.get("https://jsonplaceholder.typicode.com/todos/1");
     
   }
 }

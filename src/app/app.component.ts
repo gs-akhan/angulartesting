@@ -11,9 +11,13 @@ export class AppComponent {
   title = 'angulartesting';
   posts = [];
   public $count;
+  public $todo;
   constructor(public store: Store<any>, public postService: PostsService) {
     this.$count = this.store.pipe(select("count"));
+    this.$todo = this.store.pipe(select("todo"));
   }
+
+  
 
   public increment() {
     this.store.dispatch({
